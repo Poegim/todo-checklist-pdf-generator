@@ -32,8 +32,8 @@
           <input x-model="title" type="text" name="title"
             class="ml-2 border border-gray-400 rounded px-2 py-1 shadow-lg hover:bg-gray-50">
       </div>
-      <div class="w-full flex justify-center mt-4">
-        <div>
+      <div class="w-full justify-center mt-4">
+        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
           <input x-model="inputValue" type="text" name="inut_add"
             class="border border-gray-400 rounded px-2 py-1 shadow-lg hover:bg-gray-50">
           <button @click="list.push(inputValue); inputValue = '';" type="button"
