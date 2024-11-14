@@ -1,4 +1,4 @@
-# Foobar
+# TODO-CHECKLIST-PDF-GENERATOR
 
 Simple TO-DO webapp with print / PDF possibility.
 
