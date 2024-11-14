@@ -27,12 +27,12 @@
       </h1>
     </div>
   </div>
-  <div class=" w-full flex justify-center mt-8">
+  <div class=" w-full flex justify-center mt-4">
           <div class="my-auto">Enter list title: </div>
           <input x-model="title" type="text" name="title"
             class="ml-2 border border-gray-400 rounded px-2 py-1 shadow hover:bg-gray-50">
       </div>
-      <div class="w-full flex justify-center mt-8">
+      <div class="w-full flex justify-center mt-4">
         <div>
           <input x-model="inputValue" type="text" name="inut_add"
             class="border border-gray-400 rounded px-2 py-1 shadow hover:bg-gray-50">
@@ -51,7 +51,7 @@
             </p>
           </div>
         </div>
-        <div class="w-full flex justify-start mt-8">
+        <div class="w-full flex justify-start">
           <ul class="p-8">
             <template x-for="(value, index) in list">
               <li class="flex space-x-2 mt-2">
