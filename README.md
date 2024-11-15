@@ -6,7 +6,7 @@ Already hosted on: https://todo-checklist-pdf-generator.online
 Copy paste and npm install.
 
 ## Technologies
-AlpineJS, TailwindCSS, HTML, CSS.
+AlpineJS, TailwindCSS, HTML, CSS, PHP.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first

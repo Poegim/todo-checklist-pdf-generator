@@ -68,8 +68,12 @@
             <ul class="p-4">
               <template x-for="(value, index) in list" :key="index">
                 <li class="flex space-x-2 mt-2">
-                  <div class="w-6 h-6 rounded border border-gray-500"></div>
-                  <span x-text="value"></span>
+                  <button type="button" @click="list.splice(index, 1);" class="w-6 h-6 rounded border border-gray-500 hover:bg-red-500 text-white font-bold">
+                    <div class="">
+                      x
+                    </div>
+                  </button>
+                  <span x-text="value" class="text-lg my-auto ml-2"></span>
                 </li>
               </template>
             </ul>
