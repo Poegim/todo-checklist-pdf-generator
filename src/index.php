@@ -26,18 +26,23 @@
 </head>
 
 <body x-data="{list: [], inputValue: '', title: ''}">
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-400">
-    <div class="w-full pt-4 pb-4 flex justify-center">
-      <div class="max-w-7xl rounded-lg border-2 border-gray-200 bg-white p-4 shadow-lg" id="content">
+  <div class="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-300">
+    <div class="w-full pb-4 pt-8 md:pt-24 flex justify-center">
+      <div class="max-w-7xl rounded-lg border-2 border-gray-200 bg-white px-4 pb-12 shadow-lg" id="content">
 
         <!-- Header Section -->
-        <div class="w-full flex justify-center mb-4">
-          <h1 class="text-xl font-bold">Welcome to TODO PDF Checklist Generator!</h1>
+        <div class="w-full grid grid-cols-1 text-center py-12 px-6">
+          <h1 class="text-xl md:text-2xl font-bold tracking-tight">Simple and free, TODO Checklist PDF Generator.</h1>
+          <p>
+            <h2 class="text-md tracking-tighter">Generate professional, easy-to-use PDF to-do lists and checklists for free – ready to print with just one click.</h2>
+          </p>
         </div>
+        
+        
 
         <!-- Title Input Section -->
         <div class="w-full flex justify-center items-center mt-4">
-          <span class="text-gray-700">List title:</span>
+          <span class="text-gray-600 md:text-lg italic">List title:</span>
           <input x-model="title" type="text" name="title"
             class="ml-2 border border-gray-400 rounded px-2 py-1 shadow-lg hover:bg-gray-50" />
         </div>
@@ -45,11 +50,11 @@
         <!-- Item Input and Buttons Section -->
         <div class="w-full flex justify-center mt-4">
           <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-            <div class="my-auto text-sm text-gray-700">Add item name:</div>
+            <div class="my-auto md:text-lg italic text-gray-600 ">Add item name:</div>
             <input x-model="inputValue" type="text" name="input_add"
               class="border border-gray-400 rounded px-2 py-1 shadow-lg hover:bg-gray-50">
             <button @click="list.push(inputValue); inputValue = '';" type="button"
-              class="text-md px-8 py-1 rounded bg-gradient-to-tr from-green-200 to-blue-400 hover:from-green-300 hover:to-blue-500 shadow-lg border-2 border-white">
+              class="text-md px-8 py-1 rounded text-white bg-gradient-to-tr from-green-500 to-blue-700 hover:from-green-300 hover:to-blue-500 shadow-lg border-2 border-white">
               Add
             </button>
             <button @click="list.pop(); inputValue = '';" type="button"
@@ -83,8 +88,11 @@
         <!-- Print Button Section -->
         <div class="w-full flex justify-center mt-8">
           <button type="button" id="print_btn"
-            class="text-md px-8 py-1 rounded bg-gradient-to-tr from-violet-200 to-orange-400 hover:from-violet-300 hover:to-orange-500 shadow-lg border-2 border-white">
-            Print
+            class="text-md px-8 flex gap-2 py-1 text-white rounded bg-gradient-to-tr from-violet-500 to-orange-600 hover:from-violet-300 hover:to-orange-500 shadow-lg border-2 border-white">
+            <svg class="size-8" viewBox="0 0 48 48" id="a" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.b{fill:#ffffff;}.c{fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="c" d="M14.5171,35.415H6.4026c-.4985,0-.9026-.4041-.9026-.9026v-13.504c0-.4985,.4041-.9026,.9026-.9026H41.5974c.4985,0,.9026,.4041,.9026,.9026v13.504c0,.4985-.4041,.9026-.9026,.9026h-8.1144"></path><rect class="c" x="14.5171" y="31.4366" width="18.9659" height="10.13"></rect><path class="c" d="M33.4829,20.1056H14.5171V6.4334h14.9659l4,4v9.6723Z"></path><polyline class="c" points="29.8724 6.4334 29.8724 10.0439 33.4829 10.0439"></polyline><circle class="b" cx="39.8515" cy="22.8983" r=".75"></circle><circle class="b" cx="36.8351" cy="22.8983" r=".75"></circle><circle class="b" cx="33.8187" cy="22.8983" r=".75"></circle></g></svg>
+            <p class="my-auto text-lg font-base">
+              Download PDF
+            </p>
           </button>
         </div>
 
