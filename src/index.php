@@ -11,9 +11,6 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="./app.css">
   <?php if (file_exists(__DIR__ . '/analytics.php')): ?>
     <?php include('analytics.php'); ?>
@@ -101,16 +98,36 @@
   </div>
 
   <script>
-    let printable = document.getElementById('printable_div');
-
-    function print() {
-      html2pdf(printable);
-    }
-
     const print_btn = document.getElementById('print_btn');
-    print_btn.addEventListener('click', () => {
-      print();
+    print_btn.addEventListener('click', async () => {
+        const title = document.querySelector('input[x-model="title"]').value;
+
+        const listItems = Array.from(document.querySelectorAll('[x-text="value"]')).map(el => el.textContent);
+
+        const formData = new FormData();
+        formData.append('title', title);
+        listItems.forEach(item => formData.append('list[]', item));
+
+        const response = await fetch('./generate_pdf.php', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'checklist.pdf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        } else {
+            console.error('Błąd podczas generowania PDF:', response.statusText);
+        }
     });
+
   </script>
 
 </body>
