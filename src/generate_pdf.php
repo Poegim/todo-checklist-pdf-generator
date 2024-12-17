@@ -17,7 +17,7 @@ $html = '<!DOCTYPE html>
 <html>
 <head>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; margin: 0; }
+        body { font-family: "DejaVu Sans Mono", monospace; padding: 20px; margin: 0; }
         h1 { text-align: center; color: #333; font-size: 24px; margin-bottom: 20px; }
 
         ul {
